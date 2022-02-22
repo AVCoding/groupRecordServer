@@ -21,6 +21,10 @@
     document.getElementById("uuid").textContent = id;
   });
 
+  peer.on('error', function(){
+    alert('close text ERROR VEREV');
+  });
+
 
 
 
