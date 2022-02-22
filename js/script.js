@@ -50,6 +50,10 @@
               callerVideo.play();
             });
           });
+        
+        conn.on('error', function(){
+          alert('close text ERROR');
+        });
 
         conn.on('close', function(){
           alert('close text');
