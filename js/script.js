@@ -21,6 +21,11 @@
     document.getElementById("uuid").textContent = id;
   });
 
+  peer.on('disconnected', function(){
+    alert('close text DISCONNECTED verev');
+  });
+
+
   peer.on('error', function(){
     alert('close text ERROR VEREV');
   });
@@ -54,6 +59,10 @@
               callerVideo.play();
             });
           });
+        
+        conn.on('disconnected', function(){
+          alert('close text DISCONNECTED nerqev');
+        });
         
         conn.on('error', function(){
           alert('close text ERROR');
