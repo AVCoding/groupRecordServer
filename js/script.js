@@ -139,6 +139,10 @@
 
               // peer.destroy();
             });
+          
+            conn.on('disconnected', function(){
+              alert('Drakonin spaneciiiiiii');
+            });
 
 
 
