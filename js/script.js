@@ -23,7 +23,7 @@
 
   peer.on('disconnected', function(){
     alert('close text DISCONNECTED verev');
-    peer.reconnect().
+    peer.reconnect();
   });
 
 
