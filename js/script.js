@@ -90,6 +90,10 @@
       // Will print 'this is a test'
       console.log(data);
     });
+    
+    conn.on('disconnected', function(){
+      alert('Drakonin spaneci');
+    });
     // =============
 
     peer.on("call", (call) => {
