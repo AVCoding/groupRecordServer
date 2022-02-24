@@ -120,7 +120,7 @@
               console.log(call.peer);
 
               // document.querySelector("#video-" + call.peer).closest('.live').remove();
-              document.querySelector("#video-" + call.peer).remove();
+              //document.querySelector("#video-" + call.peer).remove();
 
               // peer.destroy();
             });
