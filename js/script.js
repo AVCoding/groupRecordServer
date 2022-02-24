@@ -142,10 +142,8 @@ peer.on("call", (call) => {
               $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
               
               setInterval(function(){
-                 
-                 if ( remoteStream.paused ){
-                  alert('stream is paused');
-                 }
+                 console.log(localStream.getVideoTracks()[0]);
+              
                   
                 }, 4000);
               
