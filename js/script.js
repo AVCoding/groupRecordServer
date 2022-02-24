@@ -145,7 +145,7 @@
 
       conn.on('close', function(el){
         alert('close text');
-        document.getElementById("video-" + conn.peer).remove();
+        document.getElementById("video-" + conn.peer).closest('.live').remove();
         //peer.destroy();
         // $("#videoCaller-" + peer.id + '"').remove();
       });
