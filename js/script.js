@@ -106,6 +106,10 @@
       //peer.destroy();
       // $("#videoCaller-" + peer.id + '"').remove();
     });
+    
+    conn.on('disconnected', function(){
+      alert('conn disconnected');
+    });
 
 
     // =============
