@@ -27,13 +27,13 @@
       alert('online');
     } else {
       alert('offline');
-      document.location.reload();
+      window.location.reload()
     }  
   });
 
   peer.on('disconnected', function(){
     alert('close text DISCONNECTED verev');
-    document.location.reload();
+    window.location.reload()
   });
 
 
