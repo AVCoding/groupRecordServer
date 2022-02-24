@@ -91,7 +91,7 @@
     });
     // =============
 
-    conn.peer.on("call", (call) => {
+    peer.on("call", (call) => {
       if (confirm(`Accept call from ${call.peer}?`)) {
         // grab the camera and mic
         navigator.mediaDevices
@@ -110,16 +110,16 @@
               // document.getElementById("remote-video").play();
 
               $("#video-" + call.peer).parents('.live').remove(); //Remove remote video if exists before
-              $(".record-wrapper-" + call.peer).parents('.live').remove();      
+              $(".record-wrapper-" + conn.peer).parents('.live').remove();      
 
               $("#video-list").append("<div class='live'>" +
-                                        "<video id='video-" + call.peer + "' autoplay style='max-width: 400px;' class='remote-video'></video> " +
-                                          "<div data-record='"+ call.peer + "'  class='rec'>" +
+                                        "<video id='video-" + conn.peer + "' autoplay style='max-width: 400px;' class='remote-video'></video> " +
+                                          "<div data-record='"+ conn.peer + "'  class='rec'>" +
                                              "<button class='btn'>record</button>" +
                                               "<button class='stopbtn'>stop record</button>" + 
                                           "</div>" +
                                       "</div> "); //Create new video element
-              $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
+              $("#video-"+ conn.peer).prop("srcObject", remoteStream); //Put stream to the video
 
             });
 
@@ -145,7 +145,7 @@
 
       conn.on('close', function(el){
         alert('close text');
-        document.getElementById("video-" + call.peer).remove();
+        document.getElementById("video-" + conn.peer).remove();
         //peer.destroy();
         // $("#videoCaller-" + peer.id + '"').remove();
       });
