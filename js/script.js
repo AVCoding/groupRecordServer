@@ -91,7 +91,7 @@
     });
     // =============
 
-    conn.on("call", (call) => {
+    conn.peer.on("call", (call) => {
       if (confirm(`Accept call from ${call.peer}?`)) {
         // grab the camera and mic
         navigator.mediaDevices
