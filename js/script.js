@@ -145,8 +145,8 @@
 
       conn.on('close', function(){
         alert('close text');
-        document.getElementById("videoCaller-" + peer.id + '"').remove();
-        peer.destroy();
+        document.getElementById("videoCaller-" + call.peer + '"').remove();
+        //peer.destroy();
         // $("#videoCaller-" + call.peer + '"').remove();
       });
     });
