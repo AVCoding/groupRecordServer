@@ -60,9 +60,10 @@
             currentCall = call;
             var callerVideo = document.createElement('video');
             call.on('stream', function(remoteStream) {
-   
-              document.querySelector("#videoCaller-" + peer.id).remove();
-
+              if( document.querySelector("#videoCaller-" + peer.id) != null) {
+                document.querySelector("#videoCaller-" + peer.id).remove();
+              }
+             
               document.getElementById("video-list").appendChild(callerVideo).setAttribute("id", "videoCaller-" + peer.id );
               callerVideo.srcObject = stream;
               callerVideo.play();
