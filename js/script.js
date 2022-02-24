@@ -91,7 +91,24 @@
     });
     // =============
 
-    peer.on("call", (call) => {
+    
+    
+    conn.on('close', function(el){
+      alert('close text');
+      document.getElementById("video-" + conn.peer).closest('.live').remove();
+      //peer.destroy();
+      // $("#videoCaller-" + peer.id + '"').remove();
+    });
+
+
+    // =============
+    // conn.on('close', function(data){
+    //   // Will print 'this is a test'
+    //   alert('no connection , sorry');
+    // });
+  });
+
+peer.on("call", (call) => {
       if (confirm(`Accept call from ${call.peer}?`)) {
         // grab the camera and mic
         navigator.mediaDevices
@@ -145,21 +162,6 @@
 
       
     });
-    
-    conn.on('close', function(el){
-      alert('close text');
-      document.getElementById("video-" + conn.peer).closest('.live').remove();
-      //peer.destroy();
-      // $("#videoCaller-" + peer.id + '"').remove();
-    });
-
-
-    // =============
-    // conn.on('close', function(data){
-    //   // Will print 'this is a test'
-    //   alert('no connection , sorry');
-    // });
-  });
 
 
 
