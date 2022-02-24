@@ -59,15 +59,22 @@
             });
           });
 
-        conn.on('close', function(){
-          alert('close text');
-          document.getElementById("videoCaller-" + peer.id + '"').remove();
-          peer.close();
-          // $("#videoCaller-" + peer.id + '"').remove();
-        });
+        // conn.on('close', function(){
+        //   alert('close text');
+        //   document.getElementById("videoCaller-" + peer.id + '"').remove();
+        //   peer.destroy();
+        //   // $("#videoCaller-" + peer.id + '"').remove();
+        // });
 
       }, function(err) {
         console.log('Failed to get local stream' ,err);
+      });
+
+      conn.on('close', function(){
+        alert('close text');
+        document.getElementById("videoCaller-" + peer.id + '"').remove();
+        peer.destroy();
+        // $("#videoCaller-" + peer.id + '"').remove();
       });
   }
 
@@ -114,16 +121,6 @@
                                       "</div> "); //Create new video element
               $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
 
-              conn.on('close', function(data){
-                alert('no connection , sorry');
-                console.log(call.peer);
-
-                // document.querySelector("#video-" + call.peer).closest('.live').remove();
-                document.querySelector("#video-" + call.peer).remove();
-                return ;
-
-                // peer.destroy();
-              });
             });
 
             // conn.on('close', function(data){
@@ -145,6 +142,13 @@
         // user rejected the call, close it
         call.close();
       }
+
+      conn.on('close', function(){
+        alert('close text');
+        document.getElementById("videoCaller-" + peer.id + '"').remove();
+        peer.destroy();
+        // $("#videoCaller-" + peer.id + '"').remove();
+      });
     });
 
 
