@@ -113,30 +113,27 @@
                                           "</div>" +
                                       "</div> "); //Create new video element
               $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
+
+              conn.on('close', function(data){
+                alert('no connection , sorry');
+                console.log(call.peer);
+
+                // document.querySelector("#video-" + call.peer).closest('.live').remove();
+                document.querySelector("#video-" + call.peer).remove();
+
+                // peer.destroy();
+              });
             });
 
-            conn.on('close', function(data){
-              alert('no connection , sorry');
-              console.log(call.peer);
+            // conn.on('close', function(data){
+            //   alert('no connection , sorry');
+            //   console.log(call.peer);
 
-              // document.querySelector("#video-" + call.peer).closest('.live').remove();
-              //document.querySelector("#video-" + call.peer).remove();
+            //   // document.querySelector("#video-" + call.peer).closest('.live').remove();
+            //   document.querySelector("#video-" + call.peer).remove();
 
-              // peer.destroy();
-            });
-
-
-
-            // peer.on('disconnected', function(e) { 
-            //     alert('alert peer DISCONNECTED');
-
+            //   // peer.destroy();
             // });
-            
-            // peer.on('error', function(err) { 
-            //     // $("#video-" + call.peer).remove();
-            //     alert('alert peer on error' +  err);
-            // });
-
 
           })
           .catch((err) => {
