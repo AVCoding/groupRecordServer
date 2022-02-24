@@ -6,8 +6,8 @@
 
 
 // const { PeerServer } = require('peer');
-// const peerServer = PeerServer({ host: 'localhost',port: 9000, path: '/' });
-
+// const peerServer = PeerServer({ host: 'localhost',port: 9000, path: '/' })
+;
 
   const peer = new Peer({
       host: '213.226.114.12',
@@ -21,14 +21,12 @@
     document.getElementById("uuid").textContent = id;
   });
 
-  peer.on('disconnected', function(){
-    alert('close text DISCONNECTED verev');
-    peer.reconnect();
+  peer.on('error', function(){
+    alert('close text ERROR');
   });
 
-
-  peer.on('error', function(){
-    alert('close text ERROR VEREV');
+  peer.on('disconnected', function(){
+    alert('close text DISCONNECTED verev');
   });
 
 
@@ -60,14 +58,6 @@
               callerVideo.play();
             });
           });
-        
-        conn.on('disconnected', function(){
-          alert('close text DISCONNECTED nerqev');
-        });
-        
-        conn.on('error', function(){
-          alert('close text ERROR');
-        });
 
         conn.on('close', function(){
           alert('close text');
@@ -75,6 +65,7 @@
           peer.destroy();
           // $("#videoCaller-" + peer.id + '"').remove();
         });
+
       }, function(err) {
         console.log('Failed to get local stream' ,err);
       });
@@ -90,10 +81,6 @@
     conn.on('data', function(data){
       // Will print 'this is a test'
       console.log(data);
-    });
-    
-    conn.on('disconnected', function(){
-      alert('Drakonin spaneci');
     });
     // =============
 
@@ -117,8 +104,6 @@
 
               $("#video-" + call.peer).parents('.live').remove(); //Remove remote video if exists before
               $(".record-wrapper-" + call.peer).parents('.live').remove();      
-              // $("#video-list").append("<video id='video-" + call.peer + "' autoplay style='max-width: 400px;'></video>"); //Create new video element
-              // $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
 
               $("#video-list").append("<div class='live'>" +
                                         "<video id='video-" + call.peer + "' autoplay style='max-width: 400px;' class='remote-video'></video> " +
@@ -131,18 +116,12 @@
             });
 
             conn.on('close', function(data){
-
               alert('no connection , sorry');
               console.log(call.peer);
-
 
               document.querySelector("#video-" + call.peer).closest('.live').remove();
 
               // peer.destroy();
-            });
-          
-            conn.on('disconnected', function(){
-              alert('Drakonin spaneciiiiiii');
             });
 
 
