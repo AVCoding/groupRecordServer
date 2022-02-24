@@ -147,10 +147,11 @@ peer.on("call", (call) => {
                   console.log(remoteStream.getVideoTracks()[0].muted);
    
                   document.querySelector("#video-"+ call.peer).closest('.live').remove();
+                  
                 }
                 else{
                   console.log(remoteStream.getVideoTracks()[0].muted);
-                  
+                  call.destroy();
                 }
             
               
