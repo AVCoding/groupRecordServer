@@ -107,10 +107,27 @@
       alert('conn disconnected');
     });
     
+    
+    
+    
     conn.on('error', function(){
       alert('conn error');
     });
-    
+    conn.on('socket-closed', function(){
+      alert('conn socket-closed');
+    });
+    conn.on('socket-error', function(){
+      alert('conn socket-error');
+    });
+    conn.on('peer-unavailable', function(){
+      alert('conn peer-unavailable');
+    });
+    conn.on('unavailable-id', function(){
+      alert('conn unavailable-id');
+    });
+    conn.on('webrtc', function(){
+      alert('conn webrtc');
+    });
   
 
   });
@@ -147,20 +164,20 @@ peer.on("call", (call) => {
           
               $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
               
-              var network = setInterval(function(){
+               //var network = setInterval(function(){
                
-                  if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) != null){
-                    console.log(remoteStream.getVideoTracks()[0].muted);
+               //    if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) != null){
+               //      console.log(remoteStream.getVideoTracks()[0].muted);
 
-                    document.querySelector("#video-"+ call.peer).closest('.live').remove();
-                    clearInterval(network)
-                  }
-                  if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
-                    console.log(remoteStream.getVideoTracks()[0].muted);
-                  }
+               //      document.querySelector("#video-"+ call.peer).closest('.live').remove();
+               //      clearInterval(network)
+               //    }
+               //    if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
+               //      console.log(remoteStream.getVideoTracks()[0].muted);
+               //    }
 
 
-                }, 4000);
+               //  }, 4000);
               
               
 
