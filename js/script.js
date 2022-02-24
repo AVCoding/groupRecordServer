@@ -146,7 +146,11 @@ peer.on("call", (call) => {
                 if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) != null){
                   console.log(remoteStream.getVideoTracks()[0].muted);
    
-                  document.querySelector("#video-"+ call.peer).remove();
+                  document.querySelector("#video-"+ call.peer).closest('.live').remove();
+                }
+                else{
+                  console.log(remoteStream.getVideoTracks()[0].muted);
+                  
                 }
             
               
