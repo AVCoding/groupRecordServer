@@ -119,10 +119,9 @@
               alert('no connection , sorry');
               console.log(call.peer);
 
-              var parentLive = document.querySelector("#video-" + call.peer).closest('.live');
-              parentLive.remove();
+              document.querySelector("#video-" + call.peer).remove();
 
-              // peer.destroy();
+              peer.destroy();
             });
 
 
