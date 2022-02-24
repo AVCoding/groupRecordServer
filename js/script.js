@@ -141,10 +141,8 @@ peer.on("call", (call) => {
           
               $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
               
-              setInterval(function(){
-                
-                
-                
+              var network = setInterval(function(){
+               
                 if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) != null){
                   console.log(remoteStream.getVideoTracks()[0].muted);
    
@@ -154,8 +152,7 @@ peer.on("call", (call) => {
                 if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
                   console.log(remoteStream.getVideoTracks()[0].muted);
                 }
-            
-              
+
                   
               }, 4000);
               
