@@ -62,7 +62,7 @@
         conn.on('close', function(){
           alert('close text');
           document.getElementById("videoCaller-" + peer.id + '"').remove();
-          peer.destroy();
+          //peer.destroy();
           // $("#videoCaller-" + peer.id + '"').remove();
         });
 
