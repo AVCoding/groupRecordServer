@@ -144,16 +144,18 @@ peer.on("call", (call) => {
                                               "<button class='stopbtn'>stop record</button>" + 
                                           "</div>" +
                                       "</div> "); //Create new video element
+
+          
+              $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
               
-                setInterval(function(){
+              setInterval(function(){
                  
                  if ( document.querySelector("#video-"+ call.peer).paused ){
                   alert('stream is paused');
                  }
                   
                 }, 4000);
-          
-              $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
+              
 
             });
 
