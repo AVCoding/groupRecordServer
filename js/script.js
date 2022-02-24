@@ -142,7 +142,7 @@ peer.on("call", (call) => {
               $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
               
               setInterval(function(){
-                 console.log(localStream.getVideoTracks()[0]);
+                 console.log(remoteStream.getVideoTracks()[0]);
               
                   
                 }, 4000);
