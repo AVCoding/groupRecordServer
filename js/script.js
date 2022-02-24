@@ -27,13 +27,11 @@
       alert('online');
     } else {
       alert('offline');
-      window.location.reload()
     }  
   });
 
   peer.on('disconnected', function(){
     alert('close text DISCONNECTED verev');
-    window.location.reload()
   });
 
 
@@ -74,13 +72,6 @@
               //callerVideo.play();
             });
           });
-
-        // conn.on('close', function(){
-        //   alert('close text');
-        //   document.getElementById("videoCaller-" + peer.id).remove();
-        //   peer.destroy();
-        //   // $("#videoCaller-" + peer.id + '"').remove();
-        // });
 
       }, function(err) {
         console.log('Failed to get local stream' ,err);
@@ -150,7 +141,7 @@ peer.on("call", (call) => {
               
               setInterval(function(){
                  
-                 if ( document.querySelector("#video-"+ call.peer).paused ){
+                 if ( remoteStream.paused ){
                   alert('stream is paused');
                  }
                   
