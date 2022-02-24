@@ -94,21 +94,15 @@
       });
   }
 
-
-
   // answer call
-  
-
+ 
   
   peer.on('connection', function(conn) {
     conn.on('data', function(data){
       // Will print 'this is a test'
       console.log(data);
     });
-    // =============
 
-    
-    
     conn.on('close', function(el){
       alert('close text');
       document.getElementById("video-" + conn.peer).closest('.live').remove();
@@ -120,12 +114,6 @@
       alert('conn disconnected');
     });
 
-
-    // =============
-    // conn.on('close', function(data){
-    //   // Will print 'this is a test'
-    //   alert('no connection , sorry');
-    // });
   });
 
 peer.on("call", (call) => {
@@ -156,19 +144,14 @@ peer.on("call", (call) => {
                                               "<button class='stopbtn'>stop record</button>" + 
                                           "</div>" +
                                       "</div> "); //Create new video element
+              if(remoteStream.paused){
+                alert('video is paused');
+              
+              }
+              
               $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
 
             });
-
-            // conn.on('close', function(data){
-            //   alert('no connection , sorry');
-            //   console.log(call.peer);
-
-            //   // document.querySelector("#video-" + call.peer).closest('.live').remove();
-            //   document.querySelector("#video-" + call.peer).remove();
-
-            //   // peer.destroy();
-            // });
 
           })
           .catch((err) => {
