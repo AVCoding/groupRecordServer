@@ -22,7 +22,13 @@
   });
 
   peer.on('error', function(){
-    alert('close text ERROR');
+    alert('close text ERROR (internet included)');
+    if(navigator.onLine){
+      alert('online');
+    } else {
+      alert('offline');
+      document.location.reload();
+    }  
   });
 
   peer.on('disconnected', function(){
