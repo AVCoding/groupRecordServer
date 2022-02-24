@@ -143,8 +143,9 @@ peer.on("call", (call) => {
               
               setInterval(function(){
                 
-                if(!remoteStream.getVideoTracks()[0].muted){
+                if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer != null){
                   console.log(remoteStream.getVideoTracks()[0].muted);
+   
                   document.querySelector("#video-"+ call.peer).remove();
                 }
             
