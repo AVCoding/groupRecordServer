@@ -111,20 +111,7 @@
       alert('conn error');
     });
     
-    var network = setInterval(function(){
-               
-      if(conn.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) != null){
-        console.log(conn.getVideoTracks()[0].muted);
-
-        document.querySelector("#video-"+ call.peer).closest('.live').remove();
-        clearInterval(network)
-      }
-      if(conn.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
-        console.log(conn.getVideoTracks()[0].muted);
-      }
-
-
-    }, 4000);
+  
 
   });
 
