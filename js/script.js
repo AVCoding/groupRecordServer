@@ -66,7 +66,12 @@
              
               document.getElementById("video-list").appendChild(callerVideo).setAttribute("id", "videoCaller-" + peer.id );
               callerVideo.srcObject = stream;
-              callerVideo.play();
+              
+              callerVideo.load();
+              setTimeout(function() {
+                callerVideo.play();
+              }, 0);
+              //callerVideo.play();
             });
           });
 
