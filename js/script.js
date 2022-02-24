@@ -6,8 +6,8 @@
 
 
 // const { PeerServer } = require('peer');
-// const peerServer = PeerServer({ host: 'localhost',port: 9000, path: '/' })
-;
+// const peerServer = PeerServer({ host: 'localhost',port: 9000, path: '/' });
+
 
   const peer = new Peer({
       host: '213.226.114.12',
@@ -62,7 +62,7 @@
         conn.on('close', function(){
           alert('close text');
           document.getElementById("videoCaller-" + peer.id + '"').remove();
-          //peer.destroy();
+          peer.destroy();
           // $("#videoCaller-" + peer.id + '"').remove();
         });
 
@@ -119,9 +119,10 @@
               alert('no connection , sorry');
               console.log(call.peer);
 
+              // document.querySelector("#video-" + call.peer).closest('.live').remove();
               document.querySelector("#video-" + call.peer).remove();
 
-              peer.destroy();
+              // peer.destroy();
             });
 
 
