@@ -23,6 +23,8 @@
 
   peer.on('error', function(){
     alert('close text ERROR (internet included)');
+    document.querySelector("#videoCaller-" + peer.id).remove();
+    
     if(navigator.onLine){
       alert('online');
     } else {
