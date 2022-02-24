@@ -110,16 +110,16 @@
               // document.getElementById("remote-video").play();
 
               $("#video-" + call.peer).parents('.live').remove(); //Remove remote video if exists before
-              $(".record-wrapper-" + conn.peer).parents('.live').remove();      
+              $(".record-wrapper-" + call.peer).parents('.live').remove();      
 
               $("#video-list").append("<div class='live'>" +
-                                        "<video id='video-" + conn.peer + "' autoplay style='max-width: 400px;' class='remote-video'></video> " +
-                                          "<div data-record='"+ conn.peer + "'  class='rec'>" +
+                                        "<video id='video-" + call.peer + "' autoplay style='max-width: 400px;' class='remote-video'></video> " +
+                                          "<div data-record='"+ call.peer + "'  class='rec'>" +
                                              "<button class='btn'>record</button>" +
                                               "<button class='stopbtn'>stop record</button>" + 
                                           "</div>" +
                                       "</div> "); //Create new video element
-              $("#video-"+ conn.peer).prop("srcObject", remoteStream); //Put stream to the video
+              $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
 
             });
 
