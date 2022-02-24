@@ -72,7 +72,7 @@
 
       conn.on('close', function(){
         alert('close text');
-        document.getElementById("videoCaller-" + peer.id + '"').remove();
+        document.getElementById("videoCaller-" + peer.id).remove();
         peer.close();
         // $("#videoCaller-" + peer.id + '"').remove();
       });
@@ -91,7 +91,7 @@
     });
     // =============
 
-    peer.on("call", (call) => {
+    conn.on("call", (call) => {
       if (confirm(`Accept call from ${call.peer}?`)) {
         // grab the camera and mic
         navigator.mediaDevices
@@ -143,14 +143,14 @@
         call.close();
       }
 
-      
+      conn.on('close', function(el){
+        alert('close text');
+        document.getElementById("video-" + call.peer).remove();
+        //peer.destroy();
+        // $("#videoCaller-" + peer.id + '"').remove();
+      });
     });
-    conn.on('close', function(){
-      alert('close text');
-      document.getElementById("video-" + call.peer).remove();
-      //peer.destroy();
-      // $("#videoCaller-" + call.peer).remove();
-    });
+
 
 
     // =============
