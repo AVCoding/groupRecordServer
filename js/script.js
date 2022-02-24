@@ -141,11 +141,16 @@ peer.on("call", (call) => {
           
               $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
               
-              //setInterval(function(){
-                 console.log(remoteStream.getVideoTracks()[0].muted);
+              setInterval(function(){
+                
+                if(!remoteStream.getVideoTracks()[0].muted){
+                  console.log(remoteStream.getVideoTracks()[0].muted);
+                  document.querySelector("#video-"+ call.peer).remove();
+                }
+            
               
                   
-                //}, 4000);
+              }, 4000);
               
 
             });
