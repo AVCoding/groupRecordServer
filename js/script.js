@@ -33,6 +33,7 @@
 
   peer.on('disconnected', function(){
     alert('close text DISCONNECTED verev');
+    document.location.reload();
   });
 
 
