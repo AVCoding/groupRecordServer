@@ -168,24 +168,24 @@ peer.on("call", (call) => {
           
               $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
               
-                //var network = setInterval(function(){
+                var network = setInterval(function(){
                
                   if(remoteStream.getVideoTracks()[0].muted == false && document.querySelector("#video-"+ call.peer) != null){
                     console.log(remoteStream.getVideoTracks()[0].muted);
 
                     document.querySelector("#video-"+ call.peer).closest('.live').remove();
-                    //clearInterval(network);
+                    clearInterval(network);
                     //call.destroy();
-                    //remoteStream.getVideoTracks()[0].stop();
+                    remoteStream.getVideoTracks()[0].stop();
                     //network = '';
-                    //return ;
+                    return ;
                   }
                   //if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
                    // console.log(remoteStream.getVideoTracks()[0].muted);
                   //}
-                    //console.log(remoteStream.getVideoTracks()[0].muted);
+                   console.log(remoteStream.getVideoTracks()[0].muted);
 
-                //}, 4000);
+                }, 4000);
               
               
 
