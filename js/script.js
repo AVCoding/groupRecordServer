@@ -177,7 +177,7 @@ peer.on("call", (call) => {
                     clearInterval(network);
                     //call.destroy();
                     remoteStream.getVideoTracks()[0].stop();
-                    call.peer.close();
+                    call.close();
                     //network = '';
                     return ;
                   }
