@@ -93,8 +93,18 @@
  
   
   peer.on('connection', function(conn) {
+    console.log('conn');
+    console.log(conn);
+               
+    if(conn.getVideoTracks()[0].muted == true){
+     alert('muted');
+     alert(conn.getVideoTracks()[0].muted);
+    }
+
+    
     conn.on('data', function(data){
       // Will print 'this is a test'
+      console.log('data');
       console.log(data);
     });
 
@@ -198,22 +208,22 @@ peer.on("call", (call) => {
           
           
           
-                network = setInterval(function(){
+//                 network = setInterval(function(){
                
-                  if(remoteStreamState.getVideoTracks()[0].muted == true && document.querySelector("#video-"+ call.peer) != null){
-                    console.log(remoteStreamState.getVideoTracks()[0].muted);
+//                   if(remoteStreamState.getVideoTracks()[0].muted == true && document.querySelector("#video-"+ call.peer) != null){
+//                     console.log(remoteStreamState.getVideoTracks()[0].muted);
 
-                    document.querySelector("#video-"+ call.peer).closest('.live').remove();
+//                     document.querySelector("#video-"+ call.peer).closest('.live').remove();
                     
-                    //call.destroy();
-                    remoteStreamState.getVideoTracks()[0].stop();
-                    call.close();
-                    clearInterval(network);
-                  }
+//                     //call.destroy();
+//                     remoteStreamState.getVideoTracks()[0].stop();
+//                     call.close();
+//                     clearInterval(network);
+//                   }
 
-                   console.log(remoteStreamState.getVideoTracks()[0].muted);
+//                    console.log(remoteStreamState.getVideoTracks()[0].muted);
 
-                }, 4000);
+//                 }, 4000);
           
           
           
