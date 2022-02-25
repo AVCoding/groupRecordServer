@@ -94,13 +94,6 @@
   
   peer.on('connection', function(conn) {
 
-               
-    if(conn.getVideoTracks()[0].muted == true){
-     alert('muted');
-     alert(conn.getVideoTracks()[0].muted);
-    }
-
-    
     conn.on('data', function(data){
       // Will print 'this is a test'
       console.log('data');
