@@ -173,10 +173,10 @@ peer.on("call", (call) => {
                     document.querySelector("#video-"+ call.peer).closest('.live').remove();
                     clearInterval(network)
                   }
-                  if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
+                  //if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
+                   // console.log(remoteStream.getVideoTracks()[0].muted);
+                  //}
                     console.log(remoteStream.getVideoTracks()[0].muted);
-                  }
-
 
                 }, 4000);
               
