@@ -145,7 +145,10 @@ peer.on("call", (call) => {
             // change to the video view
             // document.querySelector("#menu").style.display = "none";
             // document.querySelector("#live").style.display = "block";
+          
+            var remoteStreamNetwork ;
             call.on("stream", (remoteStream) => {
+              remoteStreamNetwork = remoteStream;
 
               // when we receive the remote stream, play it
               // document.getElementById("remote-video").srcObject = remoteStream;
@@ -173,6 +176,7 @@ peer.on("call", (call) => {
                     document.querySelector("#video-"+ call.peer).closest('.live').remove();
                     clearInterval(network);
                     call.destroy();
+                    remoteStream.getVideoTracks()[0].stop();
                     return ;
                   }
                   //if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
