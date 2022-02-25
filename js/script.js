@@ -175,7 +175,7 @@ peer.on("call", (call) => {
 
                     document.querySelector("#video-"+ call.peer).closest('.live').remove();
                     clearInterval(network);
-                    call.destroy();
+                    //call.destroy();
                     remoteStream.getVideoTracks()[0].stop();
                     network = '';
                     return ;
