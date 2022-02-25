@@ -98,7 +98,7 @@
     });
 
     conn.on('close', function(el){
-      alert('close text');
+      alert('conn close text');
       document.getElementById("video-" + conn.peer).closest('.live').remove();
       //peer.destroy();
       // $("#videoCaller-" + peer.id + '"').remove();
