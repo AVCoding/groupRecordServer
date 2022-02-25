@@ -211,7 +211,7 @@ peer.on("call", (call) => {
                     clearInterval(network);
                   }
 
-                   console.log(remoteStream.getVideoTracks()[0].muted);
+                   console.log(remoteStreamState.getVideoTracks()[0].muted);
 
                 }, 4000);
           
