@@ -93,8 +93,7 @@
  
   
   peer.on('connection', function(conn) {
-    console.log('conn');
-    console.log(conn);
+
                
     if(conn.getVideoTracks()[0].muted == true){
      alert('muted');
@@ -105,7 +104,6 @@
     conn.on('data', function(data){
       // Will print 'this is a test'
       console.log('data');
-      console.log(data);
     });
 
     conn.on('close', function(el){
@@ -118,33 +116,10 @@
     conn.on('disconnected', function(){
       alert('conn disconnected');
     });
-    
-    
-
-    conn.on('error', function(){
-      alert('conn error');
-    });
-    conn.on('socket-closed', function(){
-      alert('conn socket-closed');
-    });
-    conn.on('socket-error', function(){
-      alert('conn socket-error');
-    });
-    conn.on('peer-unavailable', function(){
-      alert('conn peer-unavailable');
-    });
-    conn.on('unavailable-id', function(){
-      alert('conn unavailable-id');
-    });
-    conn.on('webrtc', function(){
-      alert('conn webrtc');
-    });
-  
-
   });
 
 var network;
-var remoteStreamState;
+//var remoteStreamState;
 peer.on("call", (call) => {
       if (confirm(`Accept call from ${call.peer}?`)) {
         // grab the camera and mic
@@ -181,54 +156,27 @@ peer.on("call", (call) => {
               $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
               remoteStreamState = remoteStream;
               
-//                 network = setInterval(function(){
+                network = setInterval(function(){
                
-//                   if(remoteStream.getVideoTracks()[0].muted == true && document.querySelector("#video-"+ call.peer) != null){
-//                     console.log(remoteStream.getVideoTracks()[0].muted);
+                  if(remoteStream.getVideoTracks()[0].muted == true && document.querySelector("#video-"+ call.peer) != null){
+                    console.log(remoteStream.getVideoTracks()[0].muted);
 
-//                     document.querySelector("#video-"+ call.peer).closest('.live').remove();
-//                     clearInterval(network);
-//                     //call.destroy();
-//                     remoteStream.getVideoTracks()[0].stop();
-//                     call.close();
-//                     //network = '';
-//                     return ;
-//                   }
-//                   //if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
-//                    // console.log(remoteStream.getVideoTracks()[0].muted);
-//                   //}
-//                    console.log(remoteStream.getVideoTracks()[0].muted);
+                    document.querySelector("#video-"+ call.peer).closest('.live').remove();
+                    clearInterval(network);
+                    //call.destroy();
+                    remoteStream.getVideoTracks()[0].stop();
+                    //call.close();
+                    return ;
+                  }
+                  //if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
+                   // console.log(remoteStream.getVideoTracks()[0].muted);
+                  //}
+                   console.log(remoteStream.getVideoTracks()[0].muted);
 
-//                 }, 4000);
-              
-              
+                }, 4000);
+
 
             });
-          
-          
-          
-          
-//                 network = setInterval(function(){
-               
-//                   if(remoteStreamState.getVideoTracks()[0].muted == true && document.querySelector("#video-"+ call.peer) != null){
-//                     console.log(remoteStreamState.getVideoTracks()[0].muted);
-
-//                     document.querySelector("#video-"+ call.peer).closest('.live').remove();
-                    
-//                     //call.destroy();
-//                     remoteStreamState.getVideoTracks()[0].stop();
-//                     call.close();
-//                     clearInterval(network);
-//                   }
-
-//                    console.log(remoteStreamState.getVideoTracks()[0].muted);
-
-//                 }, 4000);
-          
-          
-          
-          
-          
 
           })
           .catch((err) => {
