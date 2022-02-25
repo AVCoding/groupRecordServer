@@ -132,7 +132,7 @@
   
 
   });
-var network;
+
 peer.on("call", (call) => {
       if (confirm(`Accept call from ${call.peer}?`)) {
         // grab the camera and mic
@@ -168,7 +168,7 @@ peer.on("call", (call) => {
           
               $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
               
-                network = setInterval(function(){
+                //var network = setInterval(function(){
                
                   if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) != null){
                     console.log(remoteStream.getVideoTracks()[0].muted);
@@ -176,16 +176,16 @@ peer.on("call", (call) => {
                     document.querySelector("#video-"+ call.peer).closest('.live').remove();
                     clearInterval(network);
                     //call.destroy();
-                    remoteStream.getVideoTracks()[0].stop();
-                    network = '';
-                    return ;
+                    //remoteStream.getVideoTracks()[0].stop();
+                    //network = '';
+                    //return ;
                   }
                   //if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
                    // console.log(remoteStream.getVideoTracks()[0].muted);
                   //}
-                    console.log(remoteStream.getVideoTracks()[0].muted);
+                    //console.log(remoteStream.getVideoTracks()[0].muted);
 
-                }, 4000);
+                //}, 4000);
               
               
 
