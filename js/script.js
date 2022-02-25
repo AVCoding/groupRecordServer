@@ -170,7 +170,7 @@ peer.on("call", (call) => {
               
                 //var network = setInterval(function(){
                
-                  if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) != null){
+                  if(remoteStream.getVideoTracks()[0].muted == true && document.querySelector("#video-"+ call.peer) != null){
                     console.log(remoteStream.getVideoTracks()[0].muted);
 
                     document.querySelector("#video-"+ call.peer).closest('.live').remove();
