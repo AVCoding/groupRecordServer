@@ -111,19 +111,19 @@
     
     
     
-    conn.on('stream', function(conRemoteStream){
+    //conn.on('stream', function(conRemoteStream){
 
-      alert('conn disconnected');
-      if(conRemoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) != null){
-        console.log(conRemoteStream.getVideoTracks()[0].muted);
+      //alert('conn disconnected');
+      if(conn.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) != null){
+        console.log(conn.getVideoTracks()[0].muted);
 
         document.querySelector("#video-"+ call.peer).closest('.live').remove();
       }
-      if(conRemoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
-        console.log(conRemoteStream.getVideoTracks()[0].muted);
+      if(conn.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
+        console.log(conn.getVideoTracks()[0].muted);
       }
 
-    });
+    //});
     
     conn.on('error', function(){
       alert('conn error');
