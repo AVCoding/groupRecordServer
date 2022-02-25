@@ -47,7 +47,7 @@
       // $(this).parents('');
   });
 
-
+  var callerId;
   // start call
   async function callUser() {
       var myVariable = 'this is a test';
@@ -66,6 +66,7 @@
               }
              
               document.getElementById("video-list").appendChild(callerVideo).setAttribute("id", "videoCaller-" + peer.id );
+              callerId =  peer.id;
               callerVideo.srcObject = stream;
               
               callerVideo.load();
@@ -82,7 +83,7 @@
 
       conn.on('close', function(){
         alert('close text');
-        document.getElementById("videoCaller-" + peer.id).remove();
+        document.getElementById("videoCaller-" + callerId).remove();
         peer.destroy();
         // $("#videoCaller-" + peer.id + '"').remove();
       });
