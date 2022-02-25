@@ -110,21 +110,7 @@
     });
     
     
-    
-    //conn.on('stream', function(conRemoteStream){
 
-      //alert('conn disconnected');
-      if(conn.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) != null){
-        console.log(conn.getVideoTracks()[0].muted);
-
-        document.querySelector("#video-"+ call.peer).closest('.live').remove();
-      }
-      if(conn.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
-        console.log(conn.getVideoTracks()[0].muted);
-      }
-
-    //});
-    
     conn.on('error', function(){
       alert('conn error');
     });
@@ -179,20 +165,20 @@ peer.on("call", (call) => {
           
               $("#video-"+ call.peer).prop("srcObject", remoteStream); //Put stream to the video
               
-               //var network = setInterval(function(){
+                var network = setInterval(function(){
                
-               //    if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) != null){
-               //      console.log(remoteStream.getVideoTracks()[0].muted);
+                  if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) != null){
+                    console.log(remoteStream.getVideoTracks()[0].muted);
 
-               //      document.querySelector("#video-"+ call.peer).closest('.live').remove();
-               //      clearInterval(network)
-               //    }
-               //    if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
-               //      console.log(remoteStream.getVideoTracks()[0].muted);
-               //    }
+                    document.querySelector("#video-"+ call.peer).closest('.live').remove();
+                    clearInterval(network)
+                  }
+                  if(remoteStream.getVideoTracks()[0].muted && document.querySelector("#video-"+ call.peer) == null){
+                    console.log(remoteStream.getVideoTracks()[0].muted);
+                  }
 
 
-               //  }, 4000);
+                }, 4000);
               
               
 
