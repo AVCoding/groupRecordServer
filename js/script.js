@@ -41,7 +41,8 @@
 
   $(document).on('click', '.disconnectbtn' , function(){
 
-    peer.disconnect();
+    //peer.disconnect();
+    peer.close();
     alert('Disconnected');
       // $(this).parents('');
   });
