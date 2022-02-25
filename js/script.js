@@ -42,7 +42,7 @@
   $(document).on('click', '.disconnectbtn' , function(){
 
     //peer.disconnect();
-    peer.close();
+    peer.destroy();
     alert('Disconnected');
       // $(this).parents('');
   });
